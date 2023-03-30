@@ -20,5 +20,7 @@
 
         <button type="submit" name="submit">Ubah Password</button>
     </form>
+
+    <a href="./settings.php">Kembali</a>
 </body>
 </html>
