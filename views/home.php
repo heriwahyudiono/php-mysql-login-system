@@ -1,14 +1,16 @@
 <?php
+session_start();
+if (!isset($_SESSION['id'])) {
+    header('Location: ./login.php');
+    exit();
+}
+
 require_once '../models/UserModel.php';
 
-session_start();
-
-if (isset($_SESSION['id'])) {
-    $userModel = new UserModel();
-    $user = $userModel->getUserById($_SESSION['id']);
-    if ($user !== null) {
-        $nama_lengkap = $user['nama_lengkap'];
-    }
+$userModel = new UserModel();
+$user = $userModel->getUserById($_SESSION['id']);
+if ($user !== null) {
+    $nama_lengkap = $user['nama_lengkap'];
 }
 ?>
 

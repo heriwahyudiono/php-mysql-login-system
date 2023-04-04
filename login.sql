@@ -9,5 +9,6 @@ CREATE TABLE users (
   tanggal_lahir DATE NOT NULL,
   email VARCHAR(255) NOT NULL,
   nomor_telepon VARCHAR(20) NOT NULL,
-  password VARCHAR(255) NOT NULL
+  password VARCHAR(255) NOT NULL,
+  token VARCHAR(255)
 );

@@ -17,6 +17,7 @@
 
 		<input type="submit" value="Login">
 	</form><br>
-	<a href="./register.php">Daftar</a>
+	<a href="./register.php">Daftar</a><br>
+	<a href="./lupa-password.php">Lupa Password</a>
 </body>
 </html>
