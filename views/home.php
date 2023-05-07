@@ -25,7 +25,6 @@ if ($user !== null) {
 <body>
     <h2>Selamat Datang <?php if(isset($nama_lengkap)){echo $nama_lengkap;} ?> </h2>
 
-    <a href="./profil.php">Profil</a><br>
     <a href="./settings.php">Settings</a><br><br>
 
     <a href="../controllers/LogoutController.php">Logout</a>

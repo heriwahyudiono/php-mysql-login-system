@@ -13,7 +13,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (password_verify($password, $user['password'])) {
             $_SESSION['id'] = $user['id'];
             $_SESSION['password'] = $user['password'];
-            header("Location: ../views/home.php");
+
+            if (isset($_GET['url'])) {
+                header("Location: ".$_GET['url']);
+            } else {
+                header("Location: ../views/home.php");
+            }
         } else {
             echo "Password yang Anda masukkan salah";
         }
@@ -21,3 +26,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "Email tidak terdaftar";
     }
 }
+?>

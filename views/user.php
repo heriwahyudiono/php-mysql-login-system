@@ -3,16 +3,22 @@ require_once '../models/UserModel.php';
 
 session_start();
 
-if (isset($_SESSION['id'])) {
-    $userModel = new UserModel();
-    $user = $userModel->getUserById($_SESSION['id']);
-    $nama_lengkap = $user['nama_lengkap'];
-    $jenis_kelamin = $user['jenis_kelamin'];
-    $tanggal_lahir = $user['tanggal_lahir'];
-    $tanggal_lahir = date('d-m-Y', strtotime($tanggal_lahir));
-    $email = $user['email'];
-    $nomor_telepon = $user['nomor_telepon'];
+if (!isset($_SESSION['id'])) {
+    header("Location: ./login.php?url=".urlencode($_SERVER['REQUEST_URI']));
 }
+
+$userModel = new UserModel();
+
+$id = $_GET['id'];
+
+$user = $userModel->getUserById($id);
+
+$nama_lengkap = $user['nama_lengkap'];
+$jenis_kelamin = $user['jenis_kelamin'];
+$tanggal_lahir = $user['tanggal_lahir'];
+$tanggal_lahir = date('d-m-Y', strtotime($tanggal_lahir));
+$email = $user['email'];
+$nomor_telepon = $user['nomor_telepon'];
 ?>
 
 <!DOCTYPE html>

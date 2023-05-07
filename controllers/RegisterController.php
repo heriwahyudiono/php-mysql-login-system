@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once '../models/UserModel.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -17,5 +18,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $userModel = new UserModel();
     $userModel->registerUser($nama_lengkap, $jenis_kelamin, $tanggal_lahir, $email, $nomor_telepon, $password);
+
+    $_SESSION['id'] = $userModel->getUserByEmail($email)['id'];
+
     $userModel->closeConnection();
+
+    header("Location: ../views/home.php");
 }

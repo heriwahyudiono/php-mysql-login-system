@@ -16,6 +16,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     echo "Profil berhasil di update";
 
-    header("Location: ../views/profil.php");
+    header("Location: ../views/user.php");
 }
 

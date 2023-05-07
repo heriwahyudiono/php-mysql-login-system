@@ -1,5 +1,4 @@
 <?php
-// Informasi SMTP Gmail
 define('SMTP_HOST', 'smtp.gmail.com');
 define('SMTP_AUTH', true);
 define('SMTP_USERNAME', 'heriwhydiono@gmail.com');
@@ -20,11 +19,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($user !== null) {
         $reset_token = bin2hex(random_bytes(32));
-        $reset_link = "http://localhost/reset-password.php?token=$reset_token";
+        $reset_link = "http://localhost/views/reset-password.php?token=$reset_token";
         $userModel->updateResetToken($user['id'], $reset_token);
 
         try {
-            // Konfigurasi PHPMailer
             $mail = new PHPMailer(true);
             $mail->isSMTP();
             $mail->Host = SMTP_HOST;
