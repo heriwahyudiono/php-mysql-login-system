@@ -15,9 +15,9 @@
 		<label for="password">Password:</label><br>
 		<input type="password" id="password" name="password" required><br>
 
+		<a href="./lupa-password.php">Lupa Password?</a><br>
 		<input type="submit" value="Login">
-	</form><br>
-	<a href="./register.php">Daftar</a><br>
-	<a href="./lupa-password.php">Lupa Password</a>
+	</form>
+	<p>Belum punya akun? <a href="./register.php">Daftar</a></p>
 </body>
 </html>

@@ -18,7 +18,7 @@ class UserModel
         $stmt->bind_param("ssssss", $nama_lengkap, $jenis_kelamin, $tanggal_lahir, $email, $nomor_telepon, $hashed_password);
 
         if ($stmt->execute()) {
-            header("Location: ../views/home.php");
+            header("Location: ../views/hitung.php");
         } else {
             echo "Error: " . $sql . "<br>" . $this->conn->error;
         }
@@ -105,14 +105,19 @@ class UserModel
         }
     }
 
-    public function updateResetToken($email, $token)
+    public function resetToken($email, $token)
     {
-        $sql = "UPDATE users SET token = ? WHERE email = ?";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bind_param("ss", $token, $email);
-        $stmt->execute();
-
-        return $stmt->affected_rows > 0;
+        $user = $this->getUserByEmail($email);
+        if ($user) {
+            $sql = "UPDATE users SET token = ? WHERE email = ?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bind_param("ss", $token, $email);
+            $stmt->execute();
+            if ($stmt->affected_rows > 0) {
+                return $user['token'];
+            }
+        }
+        return null;
     }
 
     public function closeConnection()

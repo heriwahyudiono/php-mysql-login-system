@@ -9,10 +9,12 @@
 <body>
 	<h2>Lupa Password</h2>
 
+	<p>Kami akan mengirim tautan untuk mereset password Anda</p>
+
 	<form action="../controllers/LupaPasswordController.php" method="post">
 		<label for="email">Email:</label>
 		<input type="email" id="email" name="email" required><br><br>
-		<button type="submit" name="submit">Kirim Email</button>
+		<button type="submit" name="submit">Kirim Tautan</button>
 	</form>
 </body>
 </html>

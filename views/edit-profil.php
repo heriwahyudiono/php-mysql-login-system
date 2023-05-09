@@ -24,7 +24,7 @@ if (isset($_SESSION['id'])) {
 </head>
 <body>
     <h2>Edit Profil</h2>
-    <form action="../controllers/EditProfilController.php" method="post">
+    <form action="../controllers/UpdateUserController.php" method="post">
         <label for="nama_lengkap">Nama Lengkap:</label>
         <input type="text" id="nama_lengkap" name="nama_lengkap" value="<?php echo isset($user['nama_lengkap']) ? $user['nama_lengkap'] : ''; ?>" required><br>
 
